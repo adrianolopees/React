@@ -9,7 +9,8 @@ function App() {
   return (
     <>
       <div>
-        <h1>Hello World</h1>
+       <h1>Eu vou aprender essa merda</h1>
+       <p>Meu primeiro parágrafo</p>
       </div>
     </>
   );
