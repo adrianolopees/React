@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ListRender from "./ListRender";
 
 const ManegeData = () => {
   /* Tentando renderizar usando variável , não funciona */
@@ -31,6 +32,7 @@ const ManegeData = () => {
         {/* E aqui atualiza sempre que clicar armazenando dentro da função o valor  */}
         <p>Contador:{contador}</p>
         <button onClick={() => handleContarClick()}>Contar</button>
+        <ListRender></ListRender>
       </div>
     </div>
   );
