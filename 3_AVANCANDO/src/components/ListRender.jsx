@@ -1,40 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const ListRender = () => {
-  const [list] = useState(["Adriano", "Pedro", "João", "Ana", "Sanmara"]);
+  const [users, setUsers] = useState([
+    { id: 1, name: "Adriano", age: 29 },
+    { id: 2, name: "João", age: 49 },
+    { id: 3, name: "Ana", age: 39 },
+  ]);
 
-  /* No mundo real você recebera os dados de um banco de dados */
-  const [users, setUsers] = useState([]);
+  const deleteRandom = () => {
+    const randomNumber = Math.floor(Math.random() * 4);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const response = await fetch("/users.json");
-        const data = await response.json();
-        setUsers(data);
-      } catch (e) {
-        console.log("Erro ao buscar users", e);
-      }
-    };
-    fetchUsers();
-  }, []);
+    setUsers((prevUsers) => {
+      return prevUsers.filter((user) => randomNumber !== user.id);
+    });
+  };
 
   return (
     <>
       <ul>
-        {list.map((item, index) => (
-          <li key={index}>{item}</li>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.name} - {user.age}
+          </li>
         ))}
       </ul>
-      <div className="mt-28">
-        <ul>
-          {users.map((user) => (
-            <li key={user.id}>
-              {user.nome} - {user.age}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <button onClick={deleteRandom}>Delete random user</button>
     </>
   );
 };
