@@ -3,6 +3,7 @@ import MyComponent from "./components/MyComponent";
 
 function App() {
   const n = 20;
+  const redTitle = true; // CONDIÇÃO DINÂMICA
   return (
     <>
       <div className="App">
@@ -27,6 +28,11 @@ function App() {
         {/* CSS INLINE DINAMICO*/}
         <h2 style={n < 21 ? { color: "purple" } : { color: "yellow" }}>
           CSS dinâmico
+        </h2>
+
+        {/* CLASS DINÂMICA */}
+        <h2 className={redTitle ? "red-title" : "title"}>
+          Esse título vai ter classe dinâmica
         </h2>
       </div>
     </>
