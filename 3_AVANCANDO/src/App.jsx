@@ -39,7 +39,7 @@ function App() {
     setMessage(msg);
   };
 
-  const pessoas = [
+  const users = [
     { id: 1, name: "Adriano", age: 29, job: "Vendedor" },
     { id: 2, name: "Sanmara", age: 39, job: "Confeiteira" },
     { id: 3, name: "João", age: 60, job: "Metalurgico" },
@@ -101,13 +101,14 @@ function App() {
         {/* State Lift */}
         <Message msg={message} />
         <ChangeMessage handleMessage={handleMessage} />
+
         {/* Desafio  */}
-        {pessoas.map((pessoa) => (
+        {users.map((user) => (
           <UserDetails
-            key={pessoa.id}
-            name={pessoa.name}
-            age={pessoa.age}
-            job={pessoa.job}
+            key={user.id}
+            name={user.name}
+            age={user.age}
+            job={user.job}
           />
         ))}
       </div>
