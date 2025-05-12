@@ -25,15 +25,9 @@ function App() {
 
   return (
     <>
-      <h1>Carros</h1>
-      <h2>Lista de Carros</h2>
+      <h1>Showroom</h1>
       {cars.map((car) => (
-        <DetailsCars
-          key={car.id}
-          name={car.name}
-          year={car.year}
-          color={car.color}
-        />
+        <DetailsCars key={car.id} car={car} />
       ))}
     </>
   );
